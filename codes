@@ -1,0 +1,588 @@
+__________________________________________________________________
+// palindrome
+def palindrome(x):
+    if x < 0:
+        return False
+    else:
+        x = str(x)
+        return x == x[::-1]
+
+# Input from the user
+num = int(input("Enter a number: "))
+
+if palindrome(num):
+    print(f"{num} is a palindrome.")
+else:
+    print(f"{num} is not a palindrome.")
+____________________________________________________________________
+//factorial
+# def factorial(n):
+#     # if n == 0:
+#     #     return 1
+#     # else:
+#     #     return n * factorial(n - 1)
+#     result = 1
+#     for i in range(1, n + 1):
+#         result *= i
+#     return result
+
+# num = int(input("Enter a number: "))
+
+# if num < 0:
+#     print("Factorial is not defined for negative numbers")
+# else:
+#     print(f"Factorial of {num} is {factorial(num)}")
+____________________________________________________________________
+//fibonacciSeries
+#include <iostream>
+using namespace std;
+
+void fibonacciSeries(int n) {
+    int a = 0, b = 1, nextTerm;
+
+    cout << "Fibonacci Series: " << a << ", " << b;
+
+    for (int i = 1; i <= n - 2; i++) {
+        nextTerm = a + b;
+        cout << ", " << nextTerm;
+        a = b;
+        b = nextTerm;
+    }
+    cout << endl;
+}
+
+int main() {
+    int num;
+    cout << "Enter the number of terms in the Fibonacci series: ";
+    cin >> num;
+
+    if (num <= 0) {
+        cout << "Number of terms should be a positive integer" << endl;
+    } else if (num == 1) {
+        cout << "Fibonacci Series: 0" << endl;
+    } else {
+        fibonacciSeries(num);
+    }
+
+    return 0;
+}
+___________________________________________________________________
+#include <iostream>
+using namespace std;
+
+// Function to print Fibonacci series and calculate sum
+int sumFibonacci(int n) {
+    if (n <= 0) return 0;
+
+    int a = 0, b = 1, c, sum = 1;
+
+    cout << "Fibonacci Series: " << a << ", " << b;
+
+    for (int i = 2; i < n; ++i) {
+        c = a + b;
+        cout << ", " << c;
+        sum += c;
+        a = b;
+        b = c;
+    }
+
+    cout << endl; // Newline after the series
+    return sum;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+    int sum = sumFibonacci(n);
+    cout << "Sum of the first " << n << " Fibonacci numbers is: " << sum << endl;
+    return 0;
+}
+_________________________________________________________________
+//Write a C program to compute the sum of the first n natural numbers:
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    for(int i = 1; i <= n; ++i) {
+        sum += i;
+    }
+
+    printf("Sum of the first %d natural numbers is: %d\n", n, sum);
+    return 0;
+}
+__________________________________________________________________
+//Write a C program to compute the sum of the first n natural odd numbers:
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    for(int i = 1; i <= n * 2; ++i) {
+        if(i % 2 != 0) {
+            sum += i;
+        }
+    }
+
+    printf("Sum of the first %d natural odd numbers is: %d\n", n, sum);
+    return 0;
+}
+__________________________________________________________________
+//Write a C program to print n Fibonacci sequences, take n as input from user:
+#include <stdio.h>
+
+int main() {
+    int n, t1 = 0, t2 = 1, nextTerm;
+    printf("Enter the number of terms: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Sequence: ");
+    for(int i = 1; i <= n; ++i) {
+        printf("%d, ", t1);
+        nextTerm = t1 + t2;
+        t1 = t2;
+        t2 = nextTerm;
+    }
+    return 0;
+}
+__________________________________________________________________
+//Write a program in C to read 10 numbers from the keyboard and find their sum and average:
+#include <stdio.h>
+
+int main() {
+    int num[10], sum = 0;
+    float average;
+    printf("Enter 10 numbers: ");
+
+    for(int i = 0; i < 10; ++i) {
+        scanf("%d", &num[i]);
+        sum += num[i];
+    }
+
+    average = sum / 10.0;
+    printf("Sum = %d, Average = %.2f\n", sum, average);
+    return 0;
+}
+___________________________________________________________________
+//Write a C program to calculate the factorial of a given number:
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    unsigned long long fact = 1;
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+
+    if(n < 0) {
+        printf("Factorial of a negative number doesn't exist.\n");
+    } else {
+        for(i = 1; i <= n; ++i) {
+            fact *= i;
+        }
+        printf("Factorial of %d = %llu\n", n, fact);
+    }
+    return 0;
+}
+__________________________________________________________________
+//Write a program to swap two numbers without using a temporary variable.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cout << "Enter two numbers: ";
+    cin >> a >> b;
+
+    cout << "Before swapping: a = " << a << ", b = " << b << endl;
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+
+    cout << "After swapping: a = " << a << ", b = " << b << endl;
+
+    return 0;
+}
+___________________________________________________________________
+//Write a program to find the factorial of a given number using recursion.
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int num;
+    cout << "Enter a positive integer: ";
+    cin >> num;
+
+    if (num < 0) {
+        cout << "Factorial of a negative number doesn't exist." << endl;
+    } else {
+        cout << "Factorial of " << num << " is " << factorial(num) << endl;
+    }
+
+    return 0;
+}
+___________________________________________________________________
+//Write a program to calculate the sum and average of 5 numbers.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numbers[5], sum = 0;
+    float average;
+
+    cout << "Enter 5 numbers: ";
+    for (int i = 0; i < 5; i++) {
+        cin >> numbers[i];
+        sum += numbers[i];
+    }
+
+    average = sum / 5.0;
+
+    cout << "Sum = " << sum << ", Average = " << average << endl;
+
+    return 0;
+}
+___________________________________________________________________
+//Write a program to find the maximum of three numbers.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2, num3;
+    cout << "Enter three numbers: ";
+    cin >> num1 >> num2 >> num3;
+
+    int max = (num1 > num2) ? ((num1 > num3) ? num1 : num3) : ((num2 > num3) ? num2 : num3);
+
+    cout << "The maximum of the three numbers is: " << max << endl;
+
+    return 0;
+}
+___________________________________________________________________
+//Write a program to check whether a given number is even or odd.
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number;
+    cout << "Enter an integer: ";
+    cin >> number;
+
+    if (number % 2 == 0) {
+        cout << number << " is even." << endl;
+    } else {
+        cout << number << " is odd." << endl;
+    }
+
+    return 0;
+}
+___________________________________________________________________
+//Return the largest element in an array:
+#include <iostream>
+using namespace std;
+
+int findLargest(int arr[], int size) {
+    int max = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    cout << "Largest element: " << findLargest(arr, size) << endl;
+    return 0;
+}
+___________________________________________________________________
+//Return the second largest element in an array:
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int findSecondLargest(int arr[], int size) {
+    int first = INT_MIN, second = INT_MIN;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > first) {
+            second = first;
+            first = arr[i];
+        } else if (arr[i] > second && arr[i] != first) {
+            second = arr[i];
+        }
+    }
+    return second;
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    cout << "Second largest element: " << findSecondLargest(arr, size) << endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the minimum element in an array:
+#include <iostream>
+using namespace std;
+
+int findMin(int arr[], int size) {
+    int min = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    cout << "Minimum element: " << findMin(arr, size) << endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the second minimum element in an array:
+#include <iostream>
+using namespace std;
+
+int findSecondMin(int arr[], int size) {
+    int min = arr[0];
+    int secondMin = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < min) {
+            secondMin = min;
+            min = arr[i];
+        } else if (arr[i] < secondMin && arr[i] != min) {
+            secondMin = arr[i];
+        }
+    }
+    return secondMin;
+}
+
+int main() {
+    int arr[] = {5, 2, 9, 1, 5, 6};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    cout << "Second minimum element: " << findSecondMin(arr, size) << endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the Maximum in an Array:
+#include <iostream>
+
+int findMax(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 9, 5, 7, 1, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    std::cout << "Maximum element: " << findMax(arr, n) << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the Maximum in an Array:
+#include <iostream>
+
+int findMin(int arr[], int n) {
+    int min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 9, 5, 7, 1, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    std::cout << "Minimum element: " << findMin(arr, n) << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the Sum of an Array:
+#include <iostream>
+
+int findSum(int arr[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 9, 5, 7, 1, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    std::cout << "Sum of elements: " << findSum(arr, n) << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the Mean/Average of an Array:
+#include <iostream>
+
+int findSum(int arr[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+double findMean(int arr[], int n) {
+    int sum = findSum(arr, n);
+    return static_cast<double>(sum) / n;
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 9, 5, 7, 1, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    std::cout << "Mean of elements: " << findMean(arr, n) << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Sort 0s and 1s Without Using Sorting Algorithm:
+#include <iostream>
+
+void sortZeroesOnes(int arr[], int n) {
+    int count0 = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 0) {
+            count0++;
+        }
+    }
+    for (int i = 0; i < count0; i++) {
+        arr[i] = 0;
+    }
+    for (int i = count0; i < n; i++) {
+        arr[i] = 1;
+    }
+}
+
+int main() {
+    int arr[] = {0, 1, 1, 0, 0, 1, 1, 0};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    sortZeroesOnes(arr, n);
+    std::cout << "Array after sorting 0s and 1s: ";
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Reverse an Array:
+#include <iostream>
+#include <algorithm> // for std::swap
+
+void reverseArray(int arr[], int n) {
+    int start = 0;
+    int end = n - 1;
+    while (start < end) {
+        std::swap(arr[start], arr[end]);
+        start++;
+        end--;
+    }
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 9, 5, 7, 1, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    reverseArray(arr, n);
+    std::cout << "Array after reversing: ";
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Check if an Array is Sorted:
+#include <iostream>
+
+bool isSorted(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    std::cout << "Array is sorted: " << (isSorted(arr, n) ? "Yes" : "No") << std::endl;
+    return 0;
+}
+____________________________________________________________________
+//Find the Second Largest Element in an Array:
+#include <iostream>
+#include <climits> // for INT_MIN
+
+int secondLargest(int arr[], int n) {
+    int first = INT_MIN;
+    int second = INT_MIN;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > first) {
+            second = first;
+            first = arr[i];
+        } else if (arr[i] > second && arr[i] != first) {
+            second = arr[i];
+        }
+    }
+    return second;
+}
+
+int main() {
+    int arr[] = {3, 5, 2, 9, 5, 7, 1, 4};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    std::cout << "Second largest element: " << secondLargest(arr, n) << std::endl;
+    return 0;
+}
+____________________________________________________________________
+// max consecutives ones (485)--> leetcode
+class Solution {
+public:
+    int findMaxConsecutiveOnes(vector<int>& nums) {
+        int max_streak = 0;
+        int curr_streak = 0;
+        
+        for(int i = 0; i < nums.size(); i++){
+            if(nums[i] == 1){
+                curr_streak++;
+                max_streak = max(curr_streak, max_streak);
+            } else {
+                curr_streak = 0;
+            }  
+        }
+        return max_streak;
+    }
+};
+____________________________________________________________________
