@@ -667,3 +667,173 @@ int main() {
     return 0;
 }
 _____________________________________________________________________
+//adddigits,258
+class Solution {
+public:
+    int addDigits(int num) {
+        int a = num / 10;
+        int b = num % 10;
+        int sum = 0;
+        
+        for(int i = 0; i < num ;i++){
+            sum = a+b;
+            
+            if(sum > 9){
+                sum = addDigits(sum);
+            }
+        }
+        return sum;
+    }
+};
+____________________________________________________________________
+//twosum pair with given sum
+class Solution {
+  public:
+    bool twoSum(vector<int>& arr, int target) {
+        // code here
+        
+        int n = arr.size();
+         if (n < 2) {
+              return false; 
+          }
+          
+        sort(arr.begin(), arr.end());
+
+        int left = 0;
+        int right = n - 1;
+
+        while (left < right) {
+            int sum = arr[left] + arr[right];
+            if (sum == target) {
+                return true;
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return false;
+        
+    }
+};
+__________________________________________________________________
+// 287. Find the Duplicate Number
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int n = nums.size();
+         
+        for(int i = 0; i < n;i++){
+            int idx = abs(nums[i])-1;
+            if(nums[idx] < 0) {
+                return idx + 1;
+            } else {
+                nums[idx] = -nums[idx];
+            }
+            
+        }
+        return 1;
+    }
+};
+____________________________________________________________________
+// valid anagram
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        vector<int> freq1(26,0);
+        vector<int> freq2(26,0);
+        if (s.size() != t.size()) return false;
+        
+        for(int i = 0; i < s.size();i++){
+            char cs = s[i];
+            int sidx = cs -'a';
+            freq1[sidx]++;
+
+            char ts = t[i];
+            int tidx = ts -'a';
+            freq2[tidx]++;
+        }
+
+        
+        for(int i = 0; i < 26;i++){
+            if(freq1[i] != freq2[i]){
+                return false;
+            }
+       }
+       return true;
+    }
+};
+____________________________________________________________________
+//removeDuplicates
+class Solution {
+  public:
+    string removeDuplicates(string &s) {
+        // code here
+        vector<int> seen(256,0);
+        string result;
+        
+    	//for(int i = 0; i < s.size();i++){
+	//char c = s[i];
+	//}
+        for (char c : s) {
+            if (!seen[c]) {
+                seen[c] = true;
+                result += c;
+            }
+        }
+        
+        return result;
+        
+    }
+};
+____________________________________________________________________
+// Rabin Karp --> for no spurious hit use 998857 in prime
+____________________________________________________________________
+// Binary search
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            if (nums[mid] == target) {
+                return mid; 
+            } else if (nums[mid] < target) {
+                left = mid + 1; 
+            } else {
+                right = mid - 1; 
+            }
+        }
+        return -1;
+    }
+};
+____________________________________________________________________
+// decima to binary
+int decToBinary(int decNum){
+	int ans = 0; int pow = 1;
+	
+	while(decNum > 0){
+		int rem = decNum % 2;
+		decNum /= 2;
+		
+		ans += (rem * pow);
+		pow *= 10;
+		
+	}
+	return ans;
+___________________________________________________________________
+//binary to decimal
+
+int binaryToDecmal(int decNum){
+	int ans = 0; int pow = 1;
+	
+	while(binNum > 0){
+		int rem = binNum % 10;
+		ans += (rem * pow);
+		pow *= 2;
+		binNum /= 10;
+		
+	}
+	return ans;
+__________________________________________________________________
