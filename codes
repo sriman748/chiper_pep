@@ -789,6 +789,7 @@ class Solution {
 ____________________________________________________________________
 // Rabin Karp --> for no spurious hit use 998857 in prime
 ____________________________________________________________________
+// 18/04/25
 // Binary search
 class Solution {
 public:
@@ -837,6 +838,7 @@ int binaryToDecmal(int decNum){
 	}
 	return ans;
 __________________________________________________________________
+//19/04/25
 // linked list-> insertAtbegining
 class Solution {
   public:
@@ -869,6 +871,61 @@ class Solution {
         last->next = new_node;
         
         return head;
+    }
+};
+_____________________________________________________________________
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        
+        if(!head) return true;
+
+        ListNode *curr = head;
+        while(curr && curr-> next != head){
+            curr = curr -> next;
+        }
+
+        if(!curr){ 
+            return false;
+        }
+        return true;
+    }
+};
+_______________
+//
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while(fast != nullptr && fast -> next != nullptr){
+            slow = slow -> next;
+            fast = fast -> next -> next;
+            if(slow == fast){
+            return true;
+            }
+        }
+        return false;
+    }
+};
+
+____________________________________________________________________
+// reverse the linkedlist
+class Solution {
+  public:
+    Node* reverseList(struct Node* head) {
+        // code here
+        Node *curr = head;
+        Node *next = NULL;
+        Node *prev = NULL;
+        
+        while(curr != NULL){
+            next = curr->next;
+            curr-> next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
     }
 };
 _____________________________________________________________________
